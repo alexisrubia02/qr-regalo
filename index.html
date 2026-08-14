@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#06162b">
+  <title>Para ti ❤️</title>
+  <style>
+    :root{
+      --gold:#ffe0b2; --pink:#ff7f75; --glass:rgba(4,12,25,.68);
+      --line:rgba(255,224,178,.52);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;font-family:Georgia,"Times New Roman",serif;background:#020914;color:#fff}
+    body{overflow-x:hidden}
+    .page{
+      min-height:100svh; position:relative; padding:28px 16px 44px;
+      display:flex; justify-content:center; isolation:isolate;
+      background:
+        linear-gradient(180deg,rgba(0,8,20,.18),rgba(0,5,14,.88)),
+        url("assets/foto.jpg") center/cover fixed;
+    }
+    .stars{
+      position:fixed; inset:0; z-index:-1; pointer-events:none;
+      background:
+        radial-gradient(circle at 12% 12%,#fff 0 1px,transparent 1.7px),
+        radial-gradient(circle at 73% 10%,#fff 0 1px,transparent 1.7px),
+        radial-gradient(circle at 35% 35%,#9bd8ff 0 1px,transparent 1.7px),
+        radial-gradient(circle at 88% 52%,#fff 0 1px,transparent 1.7px),
+        radial-gradient(circle at 18% 76%,#fff 0 1px,transparent 1.7px);
+      background-size:140px 140px,190px 190px,230px 230px,170px 170px,210px 210px;
+      opacity:.6;
+    }
+    .wrap{width:min(760px,100%);text-align:center}
+    .title{
+      margin:4px 0 18px;color:var(--gold);font-size:clamp(34px,10vw,58px);
+      font-style:italic; text-shadow:0 0 18px rgba(255,211,154,.55);
+    }
+    .ornament{color:var(--gold);letter-spacing:10px;font-size:20px;margin-bottom:10px}
+    .message{
+      padding:28px 22px;border:1px solid var(--line);border-radius:26px;
+      background:var(--glass);backdrop-filter:blur(10px);
+      box-shadow:0 18px 50px rgba(0,0,0,.35),0 0 35px rgba(255,200,120,.08);
+      animation:rise .9s ease both;
+    }
+    .message p{margin:0;font-size:clamp(31px,8vw,58px);line-height:1.14}
+    .message p span{color:#ff9a8f;font-style:italic}
+    .heart{color:#ff9a8f;font-size:34px;margin-top:14px}
+    .photo{
+      width:100%;max-height:58svh;object-fit:cover;object-position:center 43%;
+      margin:20px auto;border-radius:26px;display:block;
+      border:1px solid rgba(255,255,255,.2);box-shadow:0 20px 50px rgba(0,0,0,.45)
+    }
+    .music{
+      margin:18px 0 12px;padding:18px;border-radius:24px;background:rgba(2,10,22,.82);
+      border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(10px);
+    }
+    .track{display:flex;gap:14px;align-items:center;text-align:left}
+    .cover{width:72px;height:72px;border-radius:14px;object-fit:cover;background:#777}
+    .track h2{font:600 24px/1.1 Arial,sans-serif;margin:0 0 6px}
+    .track p{font:16px Arial,sans-serif;margin:0;opacity:.78}
+    .play{
+      width:100%;margin-top:18px;padding:16px 20px;border:0;border-radius:18px;
+      color:white;background:linear-gradient(135deg,#ff746d,#d94f67);font:bold 18px Arial,sans-serif;
+      box-shadow:0 10px 30px rgba(220,70,90,.3);cursor:pointer;
+      transition:.2s transform,.2s filter;
+    }
+    .play:active{transform:scale(.98);filter:brightness(.9)}
+    .note{font:13px/1.45 Arial,sans-serif;opacity:.68;margin:12px 6px 0}
+    .spotify{
+      display:inline-flex;align-items:center;gap:8px;margin-top:14px;color:#d9f8df;
+      text-decoration:none;font:600 15px Arial,sans-serif
+    }
+    .footer{margin-top:24px;color:#e8c9b6;font:14px Arial,sans-serif;opacity:.85}
+    @keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+    @media(prefers-reduced-motion:no-preference){
+      .heart{animation:pulse 1.8s infinite}
+      @keyframes pulse{50%{transform:scale(1.08);text-shadow:0 0 18px #ff8d82}}
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="stars"></div>
+    <div class="wrap">
+      <div class="ornament">♥ ───── ♥ ───── ♥</div>
+      <div class="title">Para ti</div>
+
+      <section class="message" aria-label="Mensaje">
+        <p>eres única y<br><span>especial,</span><br>te amo por<br><span>toda la eternidad</span></p>
+        <div class="heart">♡</div>
+      </section>
+
+      <img class="photo" src="assets/foto.jpg" alt="Nuestra foto">
+
+      <section class="music" aria-label="Canción">
+        <div class="track">
+          <div style="font-size:46px">🎵</div>
+          <div>
+            <h2>Ordinary</h2>
+            <p>Alex Warren</p>
+          </div>
+        </div>
+
+        <button class="play" id="play">▶ Reproducir nuestra canción</button>
+
+        <a class="spotify" id="spotifyLink"
+           href="https://open.spotify.com/track/7vC6GPyWuKptLe8vuYDgNQ"
+           target="_blank" rel="noopener">
+          ● Escuchar en Spotify
+        </a>
+
+        <p class="note">
+          Al tocar el botón se abre Spotify. Si el teléfono permite continuar la reproducción
+          en segundo plano, podés volver a esta página y seguir viendo el mensaje mientras suena.
+        </p>
+      </section>
+
+      <div class="footer">Hecho con amor para ti ❤️</div>
+    </div>
+  </main>
+
+  <script>
+    const spotifyUrl = "https://open.spotify.com/track/7vC6GPyWuKptLe8vuYDgNQ";
+    document.getElementById("play").addEventListener("click", () => {
+      // Intentamos abrir la aplicación de Spotify mediante su enlace web.
+      // En Android/iOS, el sistema decide si abre la app o el navegador.
+      window.location.href = spotifyUrl;
+    });
+  </script>
+</body>
+</html>

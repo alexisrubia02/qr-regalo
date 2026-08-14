@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Generador QR — Para ti</title>
+<style>
+body{font-family:Arial,sans-serif;background:#071525;color:#fff;margin:0;padding:28px}
+main{max-width:620px;margin:auto}
+.card{background:#10243b;border:1px solid #29425e;border-radius:22px;padding:24px}
+input,button{width:100%;padding:14px;border-radius:12px;border:0;font-size:16px}
+input{margin:8px 0 14px;background:#edf3f8}
+button{background:#ff766e;color:#fff;font-weight:700;cursor:pointer;margin-top:8px}
+#qrcode{background:#fff;padding:16px;border-radius:18px;width:max-content;max-width:100%;margin:22px auto}
+#qrcode img{display:block;max-width:100%}
+.small{opacity:.75;line-height:1.5}
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <h1>Generador de QR ❤️</h1>
+    <p class="small">Pegá aquí la URL pública de tu página (por ejemplo, la URL de GitHub Pages) y generá el QR.</p>
+    <input id="url" type="url" placeholder="https://tuusuario.github.io/qr-regalo/">
+    <button id="generate">Generar QR</button>
+    <div id="qrcode"></div>
+    <button id="download" style="display:none">Descargar QR PNG</button>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script>
+let qr;
+const url = document.getElementById("url");
+const box = document.getElementById("qrcode");
+const download = document.getElementById("download");
+
+document.getElementById("generate").onclick = () => {
+  const value = url.value.trim();
+  if(!value) return alert("Pegá primero la URL pública de tu página.");
+  box.innerHTML = "";
+  qr = new QRCode(box, {
+    text:value, width:280, height:280,
+    colorDark:"#071525", colorLight:"#ffffff",
+    correctLevel:QRCode.CorrectLevel.H
+  });
+  download.style.display="block";
+  setTimeout(()=>{
+    const img=box.querySelector("img");
+    if(!img) return;
+    download.onclick=()=>{
+      const a=document.createElement("a");
+      a.href=img.src; a.download="qr-regalo.png"; a.click();
+    };
+  },300);
+};
+</script>
+</body>
+</html>
