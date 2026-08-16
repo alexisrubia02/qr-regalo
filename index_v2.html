@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071426">
+<title>Para vos ❤️</title>
+<style>
+:root{--gold:#f8d9a6;--rose:#ff9a91;--cream:#fff7ef;--glass:rgba(5,13,28,.75);--line:rgba(248,217,166,.5)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#030914;color:#fff}
+body{font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
+.page{min-height:100svh;position:relative;isolation:isolate;overflow:hidden;background:#030914}
+.bg{position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 50% 15%,rgba(70,110,170,.28),transparent 45%),linear-gradient(180deg,rgba(1,7,18,.2),rgba(1,6,16,.96))}
+.stars{position:fixed;inset:0;z-index:-2;opacity:.7;pointer-events:none;background-image:radial-gradient(circle,#fff 0 1px,transparent 1.5px),radial-gradient(circle,#fff 0 .8px,transparent 1.4px);background-size:145px 145px,230px 230px;background-position:10px 20px,70px 90px}
+.screen{min-height:100svh;padding:28px 18px 44px;display:flex;align-items:center;justify-content:center}
+.card{width:min(720px,100%);text-align:center}.hidden{display:none!important}
+.fade{animation:fade .9s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes glow{50%{box-shadow:0 0 35px rgba(255,154,145,.2)}}
+@keyframes pulse{50%{transform:scale(1.06);opacity:.8}}
+.intro-kicker{color:var(--gold);letter-spacing:4px;text-transform:uppercase;font:600 12px Arial,sans-serif;margin-bottom:18px}
+.music-card{padding:28px 22px;border:1px solid var(--line);border-radius:28px;background:var(--glass);backdrop-filter:blur(12px);box-shadow:0 20px 60px rgba(0,0,0,.45);animation:glow 2.6s ease-in-out infinite}
+.music-icon{width:78px;height:78px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;background:rgba(255,154,145,.15);border:1px solid rgba(255,154,145,.38);font-size:35px;animation:pulse 2.2s ease-in-out infinite}
+h1{margin:0;color:var(--gold);font-size:clamp(38px,11vw,64px);font-style:italic;font-weight:400}
+.subtitle{font:15px/1.55 Arial,sans-serif;opacity:.78;margin:12px auto 24px;max-width:430px}
+.track{display:flex;align-items:center;gap:14px;text-align:left;padding:14px;border-radius:18px;background:rgba(255,255,255,.06)}
+.track-art{width:58px;height:58px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#7b4d5b,#172b4a);font-size:27px}
+.track strong{display:block;font:700 20px Arial,sans-serif}.track span{display:block;font:14px Arial,sans-serif;opacity:.65;margin-top:4px}
+.play{width:100%;margin-top:18px;padding:17px 20px;border:0;border-radius:18px;background:linear-gradient(135deg,#ff8178,#d9576d);color:#fff;font:700 17px Arial,sans-serif;box-shadow:0 12px 32px rgba(217,87,109,.3);cursor:pointer}
+.play:active{transform:scale(.98)}.helper{font:12px/1.45 Arial,sans-serif;opacity:.55;margin:12px 8px 0}
+.transition{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center}
+.transition-inner{max-width:520px}.spark{font-size:42px;margin-bottom:18px;animation:pulse 2.8s ease-in-out infinite}
+.transition h2{font-size:clamp(30px,8vw,48px);font-weight:400;font-style:italic;color:var(--gold);margin:0}
+.transition p{font:15px/1.6 Arial,sans-serif;opacity:.7;margin-top:15px}
+.message-card{padding:30px 23px;border:1px solid var(--line);border-radius:28px;background:var(--glass);backdrop-filter:blur(12px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.eyebrow{font:700 12px Arial,sans-serif;letter-spacing:4px;color:var(--rose);text-transform:uppercase}
+.message-text{margin:20px 0 0;font-size:clamp(25px,6.5vw,43px);line-height:1.38;color:var(--cream)}
+.message-text em{color:var(--gold);font-style:italic}.heart{font-size:32px;color:var(--rose);margin-top:18px}
+.final{width:min(760px,100%);text-align:center}.photo{width:100%;max-height:67svh;object-fit:cover;object-position:center 43%;border-radius:28px;display:block;border:1px solid rgba(255,255,255,.22);box-shadow:0 22px 65px rgba(0,0,0,.55)}
+.anniversary{margin-top:22px;padding:24px 20px;border-radius:26px;background:rgba(3,11,24,.8);border:1px solid var(--line);backdrop-filter:blur(10px)}
+.anniversary small{font:700 11px Arial,sans-serif;letter-spacing:4px;color:var(--rose);text-transform:uppercase}
+.anniversary h2{margin:10px 0 0;color:var(--gold);font-size:clamp(37px,10vw,60px);font-weight:400;font-style:italic;line-height:1.05}
+.anniversary p{margin:15px 0 0;font-size:clamp(24px,6vw,34px);line-height:1.35;color:var(--cream)}
+.footer{margin-top:18px;font:13px Arial,sans-serif;opacity:.55}
+.song-status{position:fixed;left:14px;right:14px;bottom:14px;z-index:20;display:none;align-items:center;gap:10px;padding:11px 14px;border-radius:16px;background:rgba(4,12,25,.88);border:1px solid rgba(255,154,145,.3);backdrop-filter:blur(12px);font:13px Arial,sans-serif;box-shadow:0 10px 35px rgba(0,0,0,.35)}
+.song-status.active{display:flex}.song-dot{font-size:20px;animation:pulse 1.2s infinite}
+</style>
+</head>
+<body>
+<div class="page"><div class="bg"></div><div class="stars"></div>
+
+<section id="songScreen" class="screen">
+<div class="card fade">
+<div class="intro-kicker">Tengo algo para vos</div>
+<div class="music-card">
+<div class="music-icon">🎵</div>
+<h1>Antes de seguir...</h1>
+<p class="subtitle">Quiero que escuches nuestra canción. Después volvé a esta página... hay algo que quiero decirte.</p>
+<div class="track"><div class="track-art">♫</div><div><strong>Ordinary</strong><span>Alex Warren</span></div></div>
+<button id="play" class="play" type="button">▶ Escuchar nuestra canción</button>
+<p class="helper">Se abrirá Spotify. Cuando empiece la canción, volvé a esta página.</p>
+</div></div>
+</section>
+
+<section id="transitionScreen" class="screen hidden">
+<div class="transition"><div class="transition-inner fade">
+<div class="spark">✨</div><h2>Ahora sí...</h2><p>Gracias por volver. Hay algo que quiero decirte.</p>
+</div></div>
+</section>
+
+<section id="messageScreen" class="screen hidden">
+<div class="card message-card fade">
+<div class="eyebrow">Para vos</div>
+<p class="message-text">
+Mi lugar favorito en el mundo no es un sitio, es cualquier lugar donde estés tú.
+Te elegí para construir, para caminar juntos y para que, sin importar lo que pase afuera,
+nuestro refugio siga siendo lo más real que tenemos.
+<br><br>
+Porque amar no es solo un sentimiento, es la decisión de elegirte cada día, pase lo que pase.
+</p>
+<div class="heart">♡</div>
+</div>
+</section>
+
+<section id="finalScreen" class="screen hidden">
+<div class="final fade">
+<img class="photo" src="foto.jpg" alt="Nuestra foto">
+<div class="anniversary">
+<small>Feliz aniversario</small>
+<h2>Feliz Aniversario Amor!</h2>
+<p>Te amo!!!! ❤️</p>
+</div>
+<div class="footer">Hecho con amor, para vos.</div>
+</div>
+</section>
+
+<div id="songStatus" class="song-status"><span class="song-dot">♫</span><span>Ordinary está sonando en Spotify ❤️</span></div>
+</div>
+
+<script>
+const spotifyUrl="https://open.spotify.com/track/7vC6GPyWuKptLe8vuYDgNQ";
+const songScreen=document.getElementById("songScreen");
+const transitionScreen=document.getElementById("transitionScreen");
+const messageScreen=document.getElementById("messageScreen");
+const finalScreen=document.getElementById("finalScreen");
+const songStatus=document.getElementById("songStatus");
+const play=document.getElementById("play");
+let returning=false;
+
+function showOnly(section){
+  [songScreen,transitionScreen,messageScreen,finalScreen].forEach(x=>x.classList.add("hidden"));
+  section.classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"instant"});
+}
+
+function startAfterSpotify(){
+  if(returning)return;
+  returning=true;
+  sessionStorage.setItem("spotifyReturned","1");
+  showOnly(transitionScreen);
+  songStatus.classList.add("active");
+  setTimeout(()=>showOnly(messageScreen),2600);
+  setTimeout(()=>showOnly(finalScreen),7000);
+}
+
+play.addEventListener("click",()=>{
+  sessionStorage.setItem("spotifyStarted","1");
+  window.location.href=spotifyUrl;
+});
+
+window.addEventListener("pageshow",()=>{
+  if(sessionStorage.getItem("spotifyStarted")==="1")startAfterSpotify();
+});
+
+document.addEventListener("visibilitychange",()=>{
+  if(document.visibilityState==="visible" && sessionStorage.getItem("spotifyStarted")==="1")startAfterSpotify();
+});
+</script>
+</body>
+</html>
